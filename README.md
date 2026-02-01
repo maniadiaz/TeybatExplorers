@@ -1,1 +1,1 @@
-# SERvicios de Exploración y mas Teybat Explores
+# Servicios de Exploración y mas Teybat Explores
