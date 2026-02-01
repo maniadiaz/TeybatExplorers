@@ -84,9 +84,7 @@ function MainLayout() {
             variant="h6"
             component="div"
             sx={{
-              flexGrow: 0,
               fontWeight: 'bold',
-              mr: 4,
               cursor: 'pointer',
             }}
             onClick={() => handleNavigation('/', 'home')}
@@ -95,7 +93,7 @@ function MainLayout() {
           </Typography>
 
           {!isMobile ? (
-            <Box sx={{ display: 'flex', gap: 1, flexGrow: 1 }}>
+            <Box sx={{ display: 'flex', gap: 1, flexGrow: 1, justifyContent: 'center' }}>
               {homeMenuItems.map((item) => (
                 <Button
                   key={item.text}
