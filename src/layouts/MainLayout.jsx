@@ -73,13 +73,13 @@ function MainLayout() {
   return (
     <Box>
       <AppBar
-       position="fixed"
-sx={{
-  // Gradiente: de azul oscuro (100% opacidad) a transparente (0% opacidad)
-  background: 'linear-gradient(to bottom, #013A63 0%, rgba(1, 58, 99, 0) 100%)',
-  boxShadow: 'none', // Normalmente las barras transparentes se ven mejor sin sombra
-  backdropFilter: 'blur(5px)', // Opcional: añade un desenfoque elegante al fondo
-}}
+        position="fixed"
+        sx={{
+          // Gradiente: de azul oscuro (100% opacidad) a transparente (0% opacidad)
+          background: 'linear-gradient(to bottom, #013A63 0%, rgba(1, 58, 99, 0) 100%)',
+          boxShadow: 'none', // Normalmente las barras transparentes se ven mejor sin sombra
+          backdropFilter: 'blur(5px)', // Opcional: añade un desenfoque elegante al fondo
+        }}
       >
         <Toolbar>
           <Typography
@@ -173,7 +173,7 @@ sx={{
         </Toolbar>
       </AppBar>
 
-      <Box component="main" sx={{ width: '100%' }}>
+      <Box component="main" sx={{ width: '100%', pt: 8 }}>
         <Outlet />
       </Box>
     </Box>
