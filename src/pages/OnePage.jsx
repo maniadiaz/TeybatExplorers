@@ -2,6 +2,7 @@ import { Box, Container, Typography, Button, IconButton } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import fondoDP from './../../public/image/TEMPLADE_HOME.JPG'
 
 const OnePage = () => {
   const navigate = useNavigate();
@@ -29,38 +30,18 @@ const OnePage = () => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          // 1. Agregamos la imagen y el gradiente con transparencia (rgba)
+          background: `linear-gradient(135deg, rgba(102, 126, 234, 0) 0%, rgba(118, 75, 162, 0) 100%), url(${fondoDP})`,
+
+          // 2. Ajustes para que la imagen cubra toda la pantalla y no se repita
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed', // Opcional: crea un efecto "parallax" al hacer scroll
+
           color: 'white',
           position: 'relative',
         }}
       >
-        <Container maxWidth="md" sx={{ textAlign: 'center' }}>
-          <Typography variant="h2" gutterBottom>
-            Contenido 1
-          </Typography>
-          <Typography variant="h5" paragraph>
-            Bienvenido a nuestra página One Page
-          </Typography>
-          <Box sx={{ mt: 4, display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Button variant="contained" color="secondary" onClick={() => scrollToSection(section2Ref)}>
-              Ir a Sección 2
-            </Button>
-            <Button variant="contained" color="secondary" onClick={() => scrollToSection(section3Ref)}>
-              Ir a Sección 3
-            </Button>
-            <Button variant="contained" color="secondary" onClick={() => scrollToSection(section4Ref)}>
-              Ir a Sección 4
-            </Button>
-          </Box>
-          <Box sx={{ mt: 3, display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Button variant="outlined" sx={{ color: 'white', borderColor: 'white' }} onClick={() => navigate('/about')}>
-              Sobre Nosotros
-            </Button>
-            <Button variant="outlined" sx={{ color: 'white', borderColor: 'white' }} onClick={() => navigate('/contact')}>
-              Contacto
-            </Button>
-          </Box>
-        </Container>
         <IconButton
           onClick={() => scrollToNext(section2Ref)}
           sx={{
@@ -83,6 +64,7 @@ const OnePage = () => {
         >
           <KeyboardArrowDownIcon fontSize="large" />
         </IconButton>
+        
       </Box>
 
       <Box
@@ -291,8 +273,8 @@ const OnePage = () => {
         }}
       >
         <Container maxWidth="md" sx={{ textAlign: 'center' }}>
-          <Typography variant="h3" gutterBottom>
-            Contacto
+          <Typography variant="h1" gutterBottom>
+            Mantenemos una comunicación activa 
           </Typography>
           <Typography variant="body1" paragraph>
             ¿Listo para tu próxima aventura?
@@ -309,7 +291,7 @@ const OnePage = () => {
             </Button>
           </Box>
           <Typography variant="caption" sx={{ mt: 4, display: 'block' }}>
-            © 2026 Teybat Explorers. Todos los derechos reservados.
+            © 2026 Soporte Tecnico Operativo. Todos los derechos reservados.
           </Typography>
         </Container>
       </Box>
