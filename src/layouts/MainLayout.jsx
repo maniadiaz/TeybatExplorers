@@ -58,14 +58,14 @@ function MainLayout() {
   };
 
   const homeMenuItems = [
-    { text: 'Inicio', icon: <HomeIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/', hash: 'home' },
-    { text: 'Experiencias', icon: <ExploreIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/', hash: 'servicios' },
-    { text: 'Opinión', icon: <FeedbackIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/', hash: 'satisfaccion' },
+    { text: 'INICIO', icon: <HomeIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/', hash: 'home' },
+    { text: 'MISIÓN', icon: <ExploreIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/', hash: 'servicios' },
+    { text: 'SERVICIOS', icon: <FeedbackIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/', hash: 'satisfaccion' },
   ];
 
   const otherMenuItems = [
-    { text: 'Acerca de', icon: <InfoIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/about' },
-    { text: 'Contacto', icon: <ContactMailIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/contact' },
+    { text: 'SOPORTE DE EQUIPOS', icon: <InfoIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/about' },
+    { text: 'SERVICIOS', icon: <ContactMailIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/contact' },
   ];
 
   const allMenuItems = [...homeMenuItems, ...otherMenuItems];
@@ -73,11 +73,13 @@ function MainLayout() {
   return (
     <Box>
       <AppBar
-        position="fixed"
-        sx={{
-          bgcolor: '#013A63',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-        }}
+       position="fixed"
+sx={{
+  // Gradiente: de azul oscuro (100% opacidad) a transparente (0% opacidad)
+  background: 'linear-gradient(to bottom, #013A63 0%, rgba(1, 58, 99, 0) 100%)',
+  boxShadow: 'none', // Normalmente las barras transparentes se ven mejor sin sombra
+  backdropFilter: 'blur(5px)', // Opcional: añade un desenfoque elegante al fondo
+}}
       >
         <Toolbar>
           <Typography
@@ -89,7 +91,7 @@ function MainLayout() {
             }}
             onClick={() => handleNavigation('/', 'home')}
           >
-            Teybat Explorers
+            SOPORTE OPERATIVO
           </Typography>
 
           {!isMobile ? (

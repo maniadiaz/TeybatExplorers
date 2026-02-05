@@ -15,10 +15,10 @@ const theme = createTheme({
       contrastText: '#fff',
     },
     background: {
-      default: '#A9D6E5', // Body color
-      paper: '#ffffff',
+      default: '#1208C9', // Body color
+      paper: '#ffffffcc',
     },
-    custom: {
+    custom: { 
       header: '#013A63',
       footer: '#014F86',
       body: '#89C2D9',

@@ -16,6 +16,7 @@ import {
   IconButton,
   Fab,
 } from '@mui/material';
+import imagendp from './../../public/image/TEMPLADE_HOME.jpg'
 import ExploreIcon from '@mui/icons-material/Explore';
 import TerrainIcon from '@mui/icons-material/Terrain';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
@@ -94,102 +95,94 @@ function Home() {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          background: 'linear-gradient(135deg, #013A63 0%, #2C7DA0 100%)',
+          background: 'linear-gradient(135deg, #105c88c0 5%, #075b8b3d 100%)',
           color: 'white',
           position: 'relative',
-          px: 3,
-          pt: 8,
+          px: 0,
+          pt: .3,
         }}
       >
-        <Box sx={{ textAlign: 'center', zIndex: 1 }}>
-          <ExploreIcon
-            sx={{
-              fontSize: 100,
-              mb: 3,
-              animation: 'float 3s ease-in-out infinite',
-              '@keyframes float': {
-                '0%, 100%': { transform: 'translateY(0px)' },
-                '50%': { transform: 'translateY(-20px)' },
-              },
-            }}
-          />
-          <Typography
-            variant="h1"
-            component="h1"
-            gutterBottom
-            fontWeight="bold"
-            sx={{
-              fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4.5rem' },
-              mb: 2,
-            }}
-          >
-            Bienvenido a Teybat Explorers
-          </Typography>
-          <Typography
-            variant="h4"
-            sx={{
-              mb: 4,
-              opacity: 0.95,
-              fontSize: { xs: '1.5rem', md: '2rem' },
-            }}
-          >
-            Descubre el mundo, una aventura a la vez
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              maxWidth: 800,
-              mx: 'auto',
-              mb: 5,
-              opacity: 0.9,
-              lineHeight: 1.6,
-            }}
-          >
-            Únete a miles de exploradores que han transformado su forma de viajar.
-            Experiencias únicas, destinos increíbles y recuerdos que durarán toda la vida.
-          </Typography>
-          <Button
-            variant="contained"
-            size="large"
-            sx={{
-              bgcolor: 'white',
-              color: '#013A63',
-              '&:hover': { bgcolor: '#A9D6E5', transform: 'scale(1.05)' },
-              fontSize: '1.2rem',
-              px: 5,
-              py: 2,
-              borderRadius: 3,
-              transition: 'all 0.3s ease',
-            }}
-          >
-            Comenzar Tu Aventura
-          </Button>
-        </Box>
-
-        {/* Scroll Down Indicator */}
         <Box
+          component="img"
+          src={imagendp}
+          alt="Descripción del sitio"
           sx={{
-            position: 'absolute',
-            bottom: 30,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            animation: 'bounce 2s infinite',
-            '@keyframes bounce': {
-              '0%, 100%': { transform: 'translate(-50%, 0)' },
-              '50%': { transform: 'translate(-50%, 10px)' },
-            },
+            width: '100%',
+            maxWidth: '100%', // Ajusta el tamaño a tu gusto
+            height: 'auto',
+            marginBottom: '2rem', // Espacio entre imagen y texto
+            filter: 'drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.14))' // Sombra opcional para que resalte
+          }}
+
+        />
+        <Typography
+          variant="h1"
+          component="h1"
+          gutterBottom
+          fontWeight="bold"
+          sx={{
+            fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4.5rem' },
+            mb: 2,
           }}
         >
-          <IconButton
-            onClick={() => scrollToSection('servicios')}
-            sx={{
-              color: 'white',
-              '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' },
-            }}
-          >
-            <KeyboardArrowDownIcon sx={{ fontSize: 50 }} />
-          </IconButton>
-        </Box>
+          ¿QUIENES SOMOS?
+        </Typography>
+  
+        <Typography
+          variant="h6"
+          sx={{
+            maxWidth: 800,
+            mx: 'auto',
+            mb: 5,
+            opacity: 0.9,
+            lineHeight: 1.6,
+          }}
+        >
+          Somos un micronegocio enfocado en desempeñar actividades en la atención de llamadas y gestión de equipos manejado por un sistema de tickets dando
+          así el seguimiento a nuestros clientes y garantizando el correcto funcionamiento de sus equipos y sus aplicaciones de trabajo.
+
+        </Typography>
+        <Button
+          variant="contained"
+          size="large"
+          sx={{
+            bgcolor: 'white',
+            color: '#013A63',
+            '&:hover': { bgcolor: '#A9D6E5', transform: 'scale(1.05)' },
+            fontSize: '1.2rem',
+            px: 5,
+            py: 2,
+            borderRadius: 3,
+            transition: 'all 0.3s ease',
+          }}
+        >
+          EQUIPO OPERATIVO
+        </Button>
+      </Box>
+
+      {/* Scroll Down Indicator */}
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: 30,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          animation: 'bounce 2s infinite',
+          '@keyframes bounce': {
+            '0%, 100%': { transform: 'translate(-50%, 0)' },
+            '50%': { transform: 'translate(-50%, 10px)' },
+          },
+        }}
+      >
+        <IconButton
+          onClick={() => scrollToSection('servicios')}
+          sx={{
+            color: 'white',
+            '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' },
+          }}
+        >
+          <KeyboardArrowDownIcon sx={{ fontSize: 50 }} />
+        </IconButton>
       </Box>
 
       {/* Services Section - Full Screen */}
@@ -200,7 +193,7 @@ function Home() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          bgcolor: '#A9D6E5',
+          bgcolor: '#af1495b7',
           py: 8,
           px: { xs: 3, md: 6 },
           position: 'relative',
@@ -214,7 +207,7 @@ function Home() {
             gutterBottom
             sx={{
               mb: 6,
-              color: '#013A63',
+              color: '#0873c0',
               fontWeight: 'bold',
               fontSize: { xs: '2rem', md: '3rem' },
             }}

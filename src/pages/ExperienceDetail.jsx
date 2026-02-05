@@ -19,7 +19,7 @@ import NatureIcon from '@mui/icons-material/Nature';
 
 const experienceData = {
   mountains: {
-    title: 'Montañas Increíbles',
+    title: 'MISION',
     description: 'Vive la emoción de conquistar las cimas más altas del mundo. Nuestras expediciones a las montañas te llevarán a lugares donde el cielo se encuentra con la tierra.',
     image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
     icon: <TerrainIcon sx={{ fontSize: 60 }} />,
