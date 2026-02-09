@@ -1,6 +1,6 @@
 import { Box, Container, Typography, Grid, Link } from '@mui/material';
 
-function Footer() {
+function Footer({ onScrollToSection }) {
   return (
     <Box
       component="footer"
@@ -26,9 +26,30 @@ function Footer() {
             <Typography variant="h6" gutterBottom>
               Enlaces
             </Typography>
-            <Link href="#" color="inherit" display="block">Inicio</Link>
-            <Link href="#" color="inherit" display="block">Servicios</Link>
-            <Link href="#" color="inherit" display="block">Contacto</Link>
+            <Link 
+              onClick={() => onScrollToSection?.('section1')} 
+              color="inherit" 
+              display="block"
+              sx={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }}
+            >
+              Inicio
+            </Link>
+            <Link 
+              onClick={() => onScrollToSection?.('section2')} 
+              color="inherit" 
+              display="block"
+              sx={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }}
+            >
+              Servicios
+            </Link>
+            <Link 
+              onClick={() => onScrollToSection?.('contact')} 
+              color="inherit" 
+              display="block"
+              sx={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }}
+            >
+              Contacto
+            </Link>
           </Grid>
           
           <Grid item xs={12} sm={4}>

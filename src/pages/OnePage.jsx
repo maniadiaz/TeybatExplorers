@@ -1,10 +1,10 @@
-import { Box, Container, Typography, Button, IconButton, Grid } from '@mui/material';
+import { Box, Container, Typography, Button, IconButton } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import fondoDP from './../../public/image/FONDO_DP_INICIO.JPG'
 import fondoDP2 from './../../public/image/FONDO_DP_2.JPG'
-import logoFooter from './../../public/image/FOOTER_HD.JPG'
+import Footer from './Footer'
 
 const OnePage = () => {
   const navigate = useNavigate();
@@ -20,6 +20,22 @@ const OnePage = () => {
 
   const scrollToNext = (nextRef) => {
     nextRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleScrollToSection = (sectionName) => {
+    const sectionMap = {
+      section1: section1Ref,
+      section2: section2Ref,
+      section3: section3Ref,
+      section4: section4Ref,
+      contact: null,
+    };
+
+    if (sectionName === 'contact') {
+      navigate('/contact');
+    } else if (sectionMap[sectionName]) {
+      scrollToSection(sectionMap[sectionName]);
+    }
   };
 
   return (
@@ -275,107 +291,8 @@ const OnePage = () => {
         </IconButton>
       </Box>
 
-      {/* FOOTER NUEVO */}
-      <Box
-        ref={footerRef}
-        component="footer"
-        sx={{
-          bgcolor: '#2c3e50',
-          color: 'white',
-          py: 4,
-        }}
-      >
-        <Container maxWidth="lg">
-          <Grid container spacing={4}>
-            {/* Columna 1: Información de la empresa */}
-            <Grid item xs={12} md={4}>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-                SOPORTE OPERATIVO
-              </Typography>
-              <Typography variant="body2" sx={{ mt: 2 }}>
-                Brindamos soluciones profesionales para tu negocio.
-              </Typography>
-            </Grid>
-
-            {/* Columna 2: Enlaces rápidos */}
-            <Grid item xs={12} md={4}>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-                Enlaces Rápidos
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mt: 2 }}>
-                <Button
-                  sx={{ color: 'white', justifyContent: 'flex-start', textTransform: 'none' }}
-                  onClick={() => scrollToSection(section1Ref)}
-                >
-                  Inicio
-                </Button>
-                <Button
-                  sx={{ color: 'white', justifyContent: 'flex-start', textTransform: 'none' }}
-                  onClick={() => scrollToSection(section2Ref)}
-                >
-                  Servicios
-                </Button>
-                <Button
-                  sx={{ color: 'white', justifyContent: 'flex-start', textTransform: 'none' }}
-                  onClick={() => navigate('/about')}
-                >
-                  Nosotros
-                </Button>
-                <Button
-                  sx={{ color: 'white', justifyContent: 'flex-start', textTransform: 'none' }}
-                  onClick={() => navigate('/contact')}
-                >
-                  Contacto
-                </Button>
-              </Box>
-            </Grid>
-
-            {/* Columna 3: Contacto */}
-            <Grid item xs={12} md={4}>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-                Contacto
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 2 }}>
-                <Typography variant="body2">
-                  📧 info@soporteoperativo.com
-                </Typography>
-                <Typography variant="body2">
-                  📞 +52 123 456 7890
-                </Typography>
-                <Typography variant="body2">
-                  📍 Mazatlán, Sinaloa, México
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
-
-          {/* Línea divisoria */}
-          <Box sx={{ borderTop: '1px solid rgba(255, 255, 255, 0.2)', my: 3 }} />
-
-          {/* Imagen al final */}
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              mb: 2,
-            }}
-          >
-            <Box
-              component="img"
-              src={logoFooter}
-              alt="Logo footer"
-              sx={{
-                maxWidth: '1800px',
-                height: 'auto',
-              }}
-            />
-          </Box>
-
-          {/* Copyright */}
-          <Typography variant="body2" align="center" sx={{ opacity: 0.8 }}>
-            © {new Date().getFullYear()} Soporte Operativo. Todos los derechos reservados.
-          </Typography>
-        </Container>
+      <Box ref={footerRef}>
+        <Footer onScrollToSection={handleScrollToSection} />
       </Box>
     </Box>
   );
