@@ -82,31 +82,26 @@ const OnePage = () => {
           position: 'relative',
         }}
       >
-        <Container maxWidth="md"
-          sx={{
-            textAlign: 'left',
-            ml: 10, // Margen izquierdo (8 * 8px = 64px)
-          }}
-        >
-          <Container
-            maxWidth="md"
-            sx={{
-              textAlign: 'left',
-              ml: 30, // Margen izquierdo (8 * 8px = 64px)
-              mt: -40,
-            }}
-          >
+        <Box sx={{
+          display: 'flex',
+          flexDirection:'column',
+          justifyContent: 'flex-start',
+          alignItems: 'flex-start',
+          width: '45%',
+          px: 4,
+          alignSelf: 'flex-start',
+        }}>
+          <Box maxWidth={'md'}>
             <Typography variant="h1" gutterBottom>
               ¿QUIENES SOMOS?
-
             </Typography>
-          </Container>
 
-          <Typography variant="h5" paragraph>
-            Somos un micronegocio enfocado en desempeñar actividades en la atención de llamadas y gestión de equipos manejado por un sistema de tickets
-            dando así el seguimiento a nuestros clientes y garantizando el correcto funcionamiento de sus equipos y sus aplicaciones de trabajo.
+            <Typography variant="h5" paragraph>
+              Somos un micronegocio enfocado en desempeñar actividades en la atención de llamadas y gestión de equipos manejado por un sistema de tickets
+              dando así el seguimiento a nuestros clientes y garantizando el correcto funcionamiento de sus equipos y sus aplicaciones de trabajo.
+            </Typography>
+          </Box>
 
-          </Typography>
           <Box sx={{ mt: 4, display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button variant="contained" color="secondary" onClick={() => scrollToSection(section1Ref)}>
               Ir a Sección 1
@@ -118,6 +113,7 @@ const OnePage = () => {
               Ir a Sección 4
             </Button>
           </Box>
+
           <Box sx={{ mt: 3, display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button variant="outlined" sx={{ color: 'white', borderColor: 'white' }} onClick={() => navigate('/about')}>
               Sobre Nosotros
@@ -126,7 +122,7 @@ const OnePage = () => {
               Contacto
             </Button>
           </Box>
-        </Container>
+        </Box>
         <IconButton
           onClick={() => scrollToNext(section3Ref)}
           sx={{
