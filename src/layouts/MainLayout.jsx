@@ -89,7 +89,10 @@ sx={{
               fontWeight: 'bold',
               cursor: 'pointer',
             }}
-            onClick={() => handleNavigation('/', 'home')}
+            onClick={() => {
+              handleNavigation('/', 'home');
+              window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll suave al inicio
+            }}
           >
             SOPORTE OPERATIVO
           </Typography>

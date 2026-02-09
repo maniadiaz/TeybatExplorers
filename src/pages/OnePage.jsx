@@ -1,8 +1,10 @@
-import { Box, Container, Typography, Button, IconButton } from '@mui/material';
+import { Box, Container, Typography, Button, IconButton, Grid } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import fondoDP from './../../public/image/TEMPLADE_HOME.JPG'
+import fondoDP from './../../public/image/FONDO_DP_INICIO.JPG'
+import fondoDP2 from './../../public/image/FONDO_DP_2.JPG'
+import logoFooter from './../../public/image/FOOTER_HD.JPG'
 
 const OnePage = () => {
   const navigate = useNavigate();
@@ -30,14 +32,11 @@ const OnePage = () => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          // 1. Agregamos la imagen y el gradiente con transparencia (rgba)
           background: `linear-gradient(135deg, rgba(102, 126, 234, 0) 0%, rgba(118, 75, 162, 0) 100%), url(${fondoDP})`,
-
-          // 2. Ajustes para que la imagen cubra toda la pantalla y no se repita
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed', // Opcional: crea un efecto "parallax" al hacer scroll
-
+          backgroundPosition: 'center 20px',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
           color: 'white',
           position: 'relative',
         }}
@@ -64,7 +63,6 @@ const OnePage = () => {
         >
           <KeyboardArrowDownIcon fontSize="large" />
         </IconButton>
-        
       </Box>
 
       <Box
@@ -75,17 +73,39 @@ const OnePage = () => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+          background: `linear-gradient(135deg, rgba(74, 80, 134, 0.25), rgba(11, 7, 233, 0.11)), url(${fondoDP2})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 20px',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
           color: 'white',
           position: 'relative',
         }}
       >
-        <Container maxWidth="md" sx={{ textAlign: 'center' }}>
-          <Typography variant="h2" gutterBottom>
-            Contenido 2
-          </Typography>
+        <Container maxWidth="md"
+          sx={{
+            textAlign: 'left',
+            ml: 10, // Margen izquierdo (8 * 8px = 64px)
+          }}
+        >
+          <Container
+            maxWidth="md"
+            sx={{
+              textAlign: 'left',
+              ml: 30, // Margen izquierdo (8 * 8px = 64px)
+              mt: -40,
+            }}
+          >
+            <Typography variant="h1" gutterBottom>
+              ¿QUIENES SOMOS?
+
+            </Typography>
+          </Container>
+
           <Typography variant="h5" paragraph>
-            Descubre nuestras experiencias únicas
+            Somos un micronegocio enfocado en desempeñar actividades en la atención de llamadas y gestión de equipos manejado por un sistema de tickets
+            dando así el seguimiento a nuestros clientes y garantizando el correcto funcionamiento de sus equipos y sus aplicaciones de trabajo.
+
           </Typography>
           <Box sx={{ mt: 4, display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button variant="contained" color="secondary" onClick={() => scrollToSection(section1Ref)}>
@@ -259,39 +279,105 @@ const OnePage = () => {
         </IconButton>
       </Box>
 
+      {/* FOOTER NUEVO */}
       <Box
         ref={footerRef}
+        component="footer"
         sx={{
-          minHeight: '50vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#263238',
+          bgcolor: '#2c3e50',
           color: 'white',
-          py: 6,
+          py: 4,
         }}
       >
-        <Container maxWidth="md" sx={{ textAlign: 'center' }}>
-          <Typography variant="h1" gutterBottom>
-            Mantenemos una comunicación activa 
-          </Typography>
-          <Typography variant="body1" paragraph>
-            ¿Listo para tu próxima aventura?
-          </Typography>
-          <Typography variant="body2" paragraph>
-            Email: info@teybatexplorers.com
-          </Typography>
-          <Typography variant="body2" paragraph>
-            Teléfono: +123 456 7890
-          </Typography>
-          <Box sx={{ mt: 4 }}>
-            <Button variant="outlined" color="inherit" onClick={() => scrollToSection(section1Ref)}>
-              Volver al inicio
-            </Button>
+        <Container maxWidth="lg">
+          <Grid container spacing={4}>
+            {/* Columna 1: Información de la empresa */}
+            <Grid item xs={12} md={4}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                SOPORTE OPERATIVO
+              </Typography>
+              <Typography variant="body2" sx={{ mt: 2 }}>
+                Brindamos soluciones profesionales para tu negocio.
+              </Typography>
+            </Grid>
+
+            {/* Columna 2: Enlaces rápidos */}
+            <Grid item xs={12} md={4}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                Enlaces Rápidos
+              </Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mt: 2 }}>
+                <Button
+                  sx={{ color: 'white', justifyContent: 'flex-start', textTransform: 'none' }}
+                  onClick={() => scrollToSection(section1Ref)}
+                >
+                  Inicio
+                </Button>
+                <Button
+                  sx={{ color: 'white', justifyContent: 'flex-start', textTransform: 'none' }}
+                  onClick={() => scrollToSection(section2Ref)}
+                >
+                  Servicios
+                </Button>
+                <Button
+                  sx={{ color: 'white', justifyContent: 'flex-start', textTransform: 'none' }}
+                  onClick={() => navigate('/about')}
+                >
+                  Nosotros
+                </Button>
+                <Button
+                  sx={{ color: 'white', justifyContent: 'flex-start', textTransform: 'none' }}
+                  onClick={() => navigate('/contact')}
+                >
+                  Contacto
+                </Button>
+              </Box>
+            </Grid>
+
+            {/* Columna 3: Contacto */}
+            <Grid item xs={12} md={4}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                Contacto
+              </Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 2 }}>
+                <Typography variant="body2">
+                  📧 info@soporteoperativo.com
+                </Typography>
+                <Typography variant="body2">
+                  📞 +52 123 456 7890
+                </Typography>
+                <Typography variant="body2">
+                  📍 Mazatlán, Sinaloa, México
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
+
+          {/* Línea divisoria */}
+          <Box sx={{ borderTop: '1px solid rgba(255, 255, 255, 0.2)', my: 3 }} />
+
+          {/* Imagen al final */}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              mb: 2,
+            }}
+          >
+            <Box
+              component="img"
+              src={logoFooter}
+              alt="Logo footer"
+              sx={{
+                maxWidth: '1800px',
+                height: 'auto',
+              }}
+            />
           </Box>
-          <Typography variant="caption" sx={{ mt: 4, display: 'block' }}>
-            © 2026 Soporte Tecnico Operativo. Todos los derechos reservados.
+
+          {/* Copyright */}
+          <Typography variant="body2" align="center" sx={{ opacity: 0.8 }}>
+            © {new Date().getFullYear()} Soporte Operativo. Todos los derechos reservados.
           </Typography>
         </Container>
       </Box>
