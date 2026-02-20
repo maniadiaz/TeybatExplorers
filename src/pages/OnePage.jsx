@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Tree, TreeNode } from 'react-organizational-chart';
 import fondoDP from './../../public/image/FONDO_DP_INICIO.JPG'
 import fondoDP2 from './../../public/image/FONDO_DP_2.JPG'
+import fondoDP3 from './../../public/image/FONDO_DP_REDPHONE.JPG'
 import Footer from './Footer'
 
 // ✅ Componente del nodo con hover
@@ -271,29 +272,27 @@ const OnePage = () => {
 
       <Box
         ref={section3Ref}
+        id="mision"
         sx={{
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+          justifyContent: 'flex-start',
+          alignItems: 'flex-start',
+          background: `linear-gradient(135deg, rgba(74, 80, 134, 0.25), rgba(11, 7, 233, 0.11)), url(${fondoDP3})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 20px',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
           color: 'white',
           position: 'relative',
+          px: 6,
+          py: 10,
         }}
       >
         <Container maxWidth="md" sx={{ textAlign: 'center' }}>
-          <Typography variant="h2" gutterBottom>Contenido 3</Typography>
+          <Typography variant="h1" gutterBottom>MISION</Typography>
           <Typography variant="h5" paragraph>Explora nuevos destinos</Typography>
-          <Box sx={{ mt: 4, display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Button variant="contained" color="secondary" onClick={() => scrollToSection(section1Ref)}>Ir a Sección 1</Button>
-            <Button variant="contained" color="secondary" onClick={() => scrollToSection(section2Ref)}>Ir a Sección 2</Button>
-            <Button variant="contained" color="secondary" onClick={() => scrollToSection(section4Ref)}>Ir a Sección 4</Button>
-          </Box>
-          <Box sx={{ mt: 3, display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Button variant="outlined" sx={{ color: 'white', borderColor: 'white' }} onClick={() => navigate('/about')}>Sobre Nosotros</Button>
-            <Button variant="outlined" sx={{ color: 'white', borderColor: 'white' }} onClick={() => navigate('/contact')}>Contacto</Button>
-          </Box>
         </Container>
         <IconButton
           onClick={() => scrollToNext(section4Ref)}

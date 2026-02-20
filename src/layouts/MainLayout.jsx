@@ -34,8 +34,17 @@ function MainLayout() {
     setAnchorEl(null);
   };
 
-  const handleNavigation = (path, hash = '') => {
+  // ✅ handleNavigation actualizado con scrollTop
+  const handleNavigation = (path, hash = '', scrollTop = false) => {
     handleMenuClose();
+
+    if (scrollTop) {
+      navigate(path);
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+      return;
+    }
 
     if (hash) {
       if (location.pathname !== path) {
@@ -57,11 +66,12 @@ function MainLayout() {
     }
   };
 
+  // ✅ INICIO con scrollTop: true
   const homeMenuItems = [
-    { text: 'INICIO', icon: <HomeIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/', hash: 'home' },
-    { text: 'MISIÓN', icon: <ExploreIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/', hash: 'servicios' },
-    { text: 'SERVICIOS', icon: <FeedbackIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/', hash: 'satisfaccion' },
-  ];
+  { text: 'INICIO', icon: <HomeIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/', hash: 'home', scrollTop: true },
+  { text: 'MISIÓN', icon: <ExploreIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/', hash: 'mision', scrollTop: false }, // 👈 hash: 'mision'
+  { text: 'SERVICIOS', icon: <FeedbackIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/', hash: 'satisfaccion' },
+];
 
   const otherMenuItems = [
     { text: 'SOPORTE DE EQUIPOS', icon: <InfoIcon sx={{ mr: 1, fontSize: 20 }} />, path: '/about' },
@@ -73,13 +83,12 @@ function MainLayout() {
   return (
     <Box>
       <AppBar
-       position="fixed"
-sx={{
-  // Gradiente: de azul oscuro (100% opacidad) a transparente (0% opacidad)
-  background: 'linear-gradient(to bottom, #013A63 0%, rgba(1, 58, 99, 0) 100%)',
-  boxShadow: 'none', // Normalmente las barras transparentes se ven mejor sin sombra
-  backdropFilter: 'blur(5px)', // Opcional: añade un desenfoque elegante al fondo
-}}
+        position="fixed"
+        sx={{
+          background: 'linear-gradient(to bottom, #013A63 0%, rgba(1, 58, 99, 0) 100%)',
+          boxShadow: 'none',
+          backdropFilter: 'blur(5px)',
+        }}
       >
         <Toolbar>
           <Typography
@@ -91,7 +100,7 @@ sx={{
             }}
             onClick={() => {
               handleNavigation('/', 'home');
-              window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll suave al inicio
+              window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
             SOPORTE OPERATIVO
@@ -103,7 +112,7 @@ sx={{
                 <Button
                   key={item.text}
                   color="inherit"
-                  onClick={() => handleNavigation(item.path, item.hash)}
+                  onClick={() => handleNavigation(item.path, item.hash, item.scrollTop)} // ✅
                   startIcon={item.icon}
                   sx={{
                     '&:hover': {
@@ -158,7 +167,7 @@ sx={{
                 {allMenuItems.map((item) => (
                   <MenuItem
                     key={item.text}
-                    onClick={() => handleNavigation(item.path, item.hash)}
+                    onClick={() => handleNavigation(item.path, item.hash, item.scrollTop)} // ✅
                     sx={{
                       py: 1.5,
                       '&:hover': {
